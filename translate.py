@@ -75,7 +75,13 @@ def get_reverse(sequence):
     >>> get_reverse('AUGC')
     'CGUA'
     """
-    pass
+    r_seq = ""
+    if len(sequence) == 0:
+        return ''
+    else:
+        for i in sequence:
+            r_seq= i + r_seq
+    return r_seq.upper()
 
 def get_complement(sequence):
     """Get the complement of a `sequence` of nucleotides.
@@ -89,7 +95,11 @@ def get_complement(sequence):
     >>> get_complement('AUGC')
     'UACG'
     """
-    pass
+    r_comp= ""
+    if len(sequence) == 0:
+        return ''
+    else:
+        
 
 def reverse_and_complement(sequence):
     """Get the reversed and complemented form of a `sequence` of nucleotides.
