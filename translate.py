@@ -75,12 +75,12 @@ def get_reverse(sequence):
     >>> get_reverse('AUGC')
     'CGUA'
     """
-    r_seq = ""
+    r_seq = ''
     if len(sequence) == 0:
         return ''
     else:
         for i in sequence:
-            r_seq= i + r_seq
+            r_seq = i + r_seq
     return r_seq.upper()
 
 def get_complement(sequence):
@@ -95,24 +95,37 @@ def get_complement(sequence):
     >>> get_complement('AUGC')
     'UACG'
     """
+    # c_seq = ''
+    # nuc = ''
+    # if len(sequence) == 0:
+    #     return ''
+    # else:
+    #     for i in sequence:
+    #         if i.upper() == "A":
+    #           nuc = "U"
+    #         elif i.upper() == "U":
+    #             nuc = "A"
+    #         elif i.upper() == "G":
+    #             nuc = "C"
+    #         elif i.upper() == "C":
+    #             nuc = "G"
+    #         c_seq = c_seq + nuc
+
+    #     return c_seq
+    
+
+
+    complements = {'A':'U','C':'G','G':'C','U':'A'}
+
     c_seq = ''
     nuc = ''
+
     if len(sequence) == 0:
-        return ''
+        print('')
     else:
         for i in sequence:
-            if i.upper() == "A":
-              nuc = "U"
-            elif i.upper() == "U":
-                nuc = "A"
-            elif i.upper() == "G":
-                nuc = "C"
-            elif i.upper() == "C":
-                nuc = "G"
-            c_seq = c_seq + nuc
-
-        return c_seq
-    
+            nuc =  nuc + complements[i.upper()]
+    return nuc.upper()
 
 def reverse_and_complement(sequence):
     """Get the reversed and complemented form of a `sequence` of nucleotides.
@@ -127,7 +140,17 @@ def reverse_and_complement(sequence):
     >>> reverse_and_complement('AUGC')
     'GCAU'
     """
-    pass
+    complements = {'A':'U','C':'G','G':'C','U':'A'}
+
+    c_seq = ''
+    rev_nuc = ''
+
+    if len(sequence) == 0:
+        print('')
+    else:
+        for i in sequence:
+            rev_nuc =  complements[i.upper()] + rev_nuc
+    return rev_nuc.upper()
 
 def get_longest_peptide(rna_sequence, genetic_code):
     """Get the longest peptide encoded by an RNA sequence.
